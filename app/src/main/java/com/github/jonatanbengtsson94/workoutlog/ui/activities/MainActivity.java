@@ -1,5 +1,6 @@
 package com.github.jonatanbengtsson94.workoutlog.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Go to templates
         } else if (v == btnStartEmpty)
         {
-            // Start empty
+            Intent intent = new Intent(MainActivity.this, CreateWorkout.class);
+            startActivity(intent);
         } else if (v == btnHistory)
         {
             // Go to history
