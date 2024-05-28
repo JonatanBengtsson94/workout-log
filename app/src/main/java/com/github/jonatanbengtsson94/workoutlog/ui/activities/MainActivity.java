@@ -1,4 +1,4 @@
-package com.github.jonatanbengtsson94.workoutlog;
+package com.github.jonatanbengtsson94.workoutlog.ui.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +10,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.github.jonatanbengtsson94.workoutlog.R;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btnStartFromTemplate, btnStartEmpty, btnHistory;
 
     @Override
     public void onClick(View v)
     {
-        int id = v.getId();
-        if (id == R.id.startBtn)
+        if (v == btnStartFromTemplate)
         {
-            System.out.println("Start pressed");
+            // Go to templates
+        } else if (v == btnStartEmpty)
+        {
+            // Start empty
+        } else if (v == btnHistory)
+        {
+            // Go to history
         }
     }
 
@@ -32,12 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        btnStartFromTemplate = findViewById(R.id.btnStartFromTemplate);
+        btnStartEmpty = findViewById(R.id.btnStartEmpty);
+        btnHistory = findViewById(R.id.btnHistory);
+
         setOnClickListeners();
     }
 
     public void setOnClickListeners()
     {
-        Button btnStart = findViewById(R.id.startBtn);
-        btnStart.setOnClickListener(this);
+        btnStartFromTemplate.setOnClickListener(this);
+        btnStartEmpty.setOnClickListener(this);
+        btnHistory.setOnClickListener(this);
     }
 }
